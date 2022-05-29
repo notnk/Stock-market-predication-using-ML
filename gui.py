@@ -11,50 +11,48 @@ from sklearn.feature_extraction.text import CountVectorizer
 import pandas as pd
 import numpy as np
 a=Tk()
-a.title("PROJECT")
+a.title("STOCK MARKET PREDICTION")
 a.geometry("1000x950")
 def Home():
     global f
     f.pack_forget()
-    f=Frame(a,bg="#58D68D ")
+    f=Frame(a,bg="skyblue")
     f.pack(side="top",fill="both",expand=True)
-    home_label=Label(f,text="HOME SCREEN",font="Helvetica 25 bold",bg="white",bd=5)
+    home_label=Label(f,text="HOME SCREEN",font="Helvetica 25 bold",bg="skyblue",bd=5)
     home_label.place(x=250,y=250)
 def Nlp():
     global f
     f.pack_forget()
     f=Frame(a,bg="skyblue")
     f.pack(side="top",fill="both",expand=True)
-    home_label=Label(f,text="STOCK MARKET MOVEMENT PREDICTION",font="Helvetica 25 bold",bg="white",bd=5)
+    home_label=Label(f,text="NLP",font="Helvetica 25 bold",bg="skyblue",bd=5)
     home_label.place(x=150,y=100)
-    home_label1=Label(f,text="Choose The Date",font="Helvetica 15 bold",bd=5)
+    home_label1=Label(f,text="Choose The Date",font="Helvetica 15 bold",bg="skyblue",bd=5)
     home_label1.place(x=250,y=200)
     var11=StringVar()
     e11=Entry(f,textvariable=var11,width=40)
     e11.place(x=450,y=200,height=30)
-    predict_button1=Button(f,text="predict",bg="pink",width=40,command=lambda:movement(var11))
+    predict_button1=Button(f,text="Predict",bg="pink",width=40,command=lambda:movement(var11))
     predict_button1.place(x=350,y=300,height=35)
-    predict_button2=Button(f,text="show plot",bg="pink",width=30,command=lambda:show(var11))
+    predict_button2=Button(f,text="Graph",bg="pink",width=30,command=lambda:show(var11))
     predict_button2.place(x=550,y=300,height=35)
     global home_label2,home_label33,home_label133
-    home_label2=Label(f,text="The prediction is:",font="Helvetica 15 bold",bd=5)
+    home_label2=Label(f,text="The prediction is:",font="Helvetica 15 bold",bg="skyblue",bd=5)
     home_label2.place(x=320,y=380)
-    home_label133=Label(f,text="The actual result is:",font="Helvetica 15 bold",bd=5)
+    home_label133=Label(f,text="The actual result is:",font="Helvetica 15 bold",bg="skyblue",bd=5)
     home_label133.place(x=320,y=450)
-    home_label33=Label(f,text="The accuracy_score is:",font="Helvetica 15 bold",bd=5)
+    home_label33=Label(f,text="The accuracy_score is:",font="Helvetica 15 bold",bg="skyblue",bd=5)
     home_label33.place(x=320,y=500)
 def Rfr():
     global f
     f.pack_forget()
-    
     f=Frame(a,bg="skyblue")
     f.pack(side="top",fill="both",expand=True)
-
-    home_label=Label(f,text="STOCK MARKET PRICE PREDICTION-RFR",font="Helvetica 25 bold",bg="white",bd=5)
+    home_label=Label(f,text="RFR",font="Helvetica 25 bold",bg="skyblue",bd=5)
     home_label.place(x=150,y=100)
-    home_label6=Label(f,text="Choose The Company",font="Helvetica 15 bold",bd=5)
+    home_label6=Label(f,text="Choose The Company",font="Helvetica 15 bold",bg="skyblue",bd=5)
     home_label6.place(x=250,y=200)
-    home_label1=Label(f,text="Choose The Date",font="Helvetica 15 bold",bd=5)
+    home_label1=Label(f,text="Choose The Date",font="Helvetica 15 bold",bg="skyblue",bd=5)
     home_label1.place(x=250,y=300)
     var12=StringVar()
     e11=Entry(f,textvariable=var12,width=40)
@@ -65,16 +63,16 @@ def Rfr():
     var99.set("select")
     option=OptionMenu(f,var99,*p)
     option.place(x=550,y=200)
-    predict_button1=Button(f,text="predict",bg="pink",width=40,command=lambda:priceregression(var12,var99))
+    predict_button1=Button(f,text="Predict",bg="pink",width=40,command=lambda:priceregression(var12,var99))
     predict_button1.place(x=350,y=370,height=35)
-    predict_button2=Button(f,text="show plot",bg="pink",width=30,command=lambda:show2(var12,var99))
+    predict_button2=Button(f,text="Graph",bg="pink",width=30,command=lambda:show2(var12,var99))
     predict_button2.place(x=550,y=370,height=35)
     global home_label3,home_label43,home_label433
-    home_label3=Label(f,text="The prediction price is",font="Helvetica 15 bold",bd=5)
+    home_label3=Label(f,text="The prediction price is",font="Helvetica 15 bold",bg="skyblue",bd=5)
     home_label3.place(x=320,y=450)
-    home_label433=Label(f,text="The actual price is:",font="Helvetica 15 bold",bd=5)
+    home_label433=Label(f,text="The actual price is:",font="Helvetica 15 bold",bg="skyblue",bd=5)
     home_label433.place(x=320,y=500)
-    home_label43=Label(f,text="The mean_squared_error is:",font="Helvetica 15 bold",bd=5)
+    home_label43=Label(f,text="The mean_squared_error is:",font="Helvetica 15 bold",bg="skyblue",bd=5)
     home_label43.place(x=320,y=550)
     
    
@@ -84,16 +82,16 @@ def Arima():
     f=Frame(a,bg="skyblue")
     f.pack(side="top",fill="both",expand=True)
 
-    home_label=Label(f,text="STOCK MARKET MOVEMENT PREDICTION",font="Helvetica 25 bold",bg="white",bd=5)
+    home_label=Label(f,text="ARIMA",font="Helvetica 25 bold",bg="skyblue",bd=5)
     home_label.place(x=150,y=100)
-    home_label1=Label(f,text="Choose the company",font="Helvetica 15 bold",bd=5)
+    home_label1=Label(f,text="Choose the company",font="Helvetica 15 bold",bg="skyblue",bd=5)
     home_label1.place(x=250,y=200)
-    home_label1=Label(f,text="Choose The Date",font="Helvetica 15 bold",bd=5)
+    home_label1=Label(f,text="Choose The Date",font="Helvetica 15 bold",bg="skyblue",bd=5)
     home_label1.place(x=250,y=300)
     var13=StringVar()
     e11=Entry(f,textvariable=var13,width=40)
     e11.place(x=450,y=300,height=30)
-    p=["AAPL1","AMS1","AMSN1","apple1","asd11","FB1","ge1","MSFT1","NKE1","SNE1","TWTR1","TYO1","WWE11","yahoo1"]
+    p=["AAPL1","AMS1","AMSN1","APPLE1","asd11","FB1","GE1","MSFT1","NKE1","SNE1","TWTR1","TYO1","WWE11","YAHOO1"]
     global var199
     var199=StringVar()
     var199.set("select")
@@ -102,24 +100,20 @@ def Arima():
     predict_button1=Button(f,text="predict",bg="pink",width=40,command=lambda:arima(var13,var199))
     predict_button1.place(x=350,y=370,height=35)
     global home_label4
-    home_label4=Label(f,text="The prediction price is:",font="Helvetica 15 bold",bd=5)
+    home_label4=Label(f,text="The prediction price is:",font="Helvetica 15 bold",bg="skyblue",bd=5)
     home_label4.place(x=320,y=450)
 def movement(var11):
  a=[]
  date=var11.get()
- #print(date)
- # df1 = pd.read_csv("news2.csv")
+
  df = pd.read_csv("news2.csv")
  v=df[df['Date'] == date].values
  v1=df[df['Date'] == date]
  print(v1)
  slicedData=v[0]
- # actual=v1['Label']
- # print(actual)
+
  g=slicedData[1]
- #Data=str(input("enter clumb_thickness :"))
- # slicedData1= slicedData.split(',')
- 
+
 
  a.append(slicedData[2])
  a.append(slicedData[3])
@@ -153,7 +147,7 @@ def movement(var11):
 
  test= df.iloc[:,0:25]
  print(df)
- #print(slicedData)
+
  print(test)
  basicvectorizer = CountVectorizer(ngram_range=(1,1))
  testheadlines = []
@@ -166,17 +160,6 @@ def movement(var11):
  classifier=pickle.load(f)
  val=classifier.predict(basictest)
 
- # global g1
- # test1 = df1[df1['Date'] >date ]
- # testheadlines1=[]
- # for row in range(0,len(test1.index)):
- #    testheadlines1.append(' '.join(str(x) for x in test1.iloc[row,0:25]))
- # with open('count.pickle', 'rb') as handle:
- #    tokenizer = pickle.load(handle)
- # basictest = tokenizer.transform(testheadlines1)
- # f=open("rfclass.pickle",'rb')
- # classifier=pickle.load(f)
- # predictions=classifier.predict(basictest)
  if val[0]==1:
     print("Result is rise")
     v="Result is rise"
@@ -189,7 +172,7 @@ def movement(var11):
  if g==1:
     g='The actual result is rise'
  else:
-    g=='The actual result is fall'
+    g='The actual result is fall'
  
  home_label133.config(text=g)
  
@@ -198,16 +181,10 @@ def movement(var11):
  
 def show(var11):
  date=var11.get()
- #print(date)
  df1 = pd.read_csv("news2.csv")
  v=df1[df1['Date'] == date].values
- # v1=df[df['Date'] == date]
- # print(v1)
  slicedData=v[0]
- # g=slicedData[1]
- 
- # print(g)
- # g=slicedData[1]
+
  global g1
  test1 = df1[df1['Date'] >date ]
  testheadlines1=[]
@@ -254,7 +231,6 @@ def priceregression(var12,var99):
  df = pd.read_csv(v1)
  df1 = pd.read_csv(v1,encoding = "ISO-8859-1")
  v=df[df['Date'] == var].values
- 
  v1=v[:1]
  v2=v1[0]
  v3=v2[1]
@@ -271,7 +247,6 @@ def priceregression(var12,var99):
  a.append(v8)
  a=np.array(a)
  a=a.reshape(1,5)
-#
 #print(predict.shape)
  with open('scale1.pickle', 'rb') as handle:
     scale = pickle.load(handle)
@@ -285,88 +260,6 @@ def priceregression(var12,var99):
  v11='the actual price is:'+str(v11)
  home_label3.config(text=v)
  home_label433.config(text=v11)
-
-# Convert to png using system command (requires Graphviz)
-
-#  var1=[]
-#  var=var.split('/')
-
-#  var=''.join(var)
- 
-#  test1= df1[df1['Date']>var]
-
-
-#  X=test1.drop('Date',axis=1)
-#  test2=X['Close'].tolist()
- 
-#  x=X.drop('Close',axis=1)
-#  predictions1= []
-#  testheadlines=[]
-#  a5=[]
-#  for row in range(0,len(x.index)):
-#     testheadlines.append(x.iloc[row,0:5])
-   
-
-#  with open('scale1.pickle', 'rb') as handle:
-#      scale1 = pickle.load(handle)
-#  basictest11 = scale1.transform(testheadlines)
-#  a5=[]
-#  f=open("rfregressn1.pickle",'rb')
-#  classifier1=pickle.load(f)
-#  predictions1=classifier1.predict(basictest11)
-#  # print(len(testheadlines))
-  
-#  from sklearn.metrics import classification_report
-#  from sklearn.metrics import f1_score
-#  from sklearn.metrics import accuracy_score 
-#  from sklearn.metrics import confusion_matrix
-#  from sklearn import metrics
-
-#  # matrix=confusion_matrix(test2,predictions1)
-
-#  ac=round(metrics.mean_absolute_error(test2, predictions1),4)
- 
-#  print(test2,"test")
-#  print(predictions1,"pres")
-#  print(type(ac))
-#  ac=str(ac)
-#  a='The mean_squared_error is :'+ac
-#  print(a)
-#  home_label43.config(text=a)
-#  import matplotlib.pyplot as plt
-#  plt.plot(test2,color='red',linewidth=3,label='actual values')
-#  plt.plot(predictions1,color='blue',label='predictions')
-#  plt.xlabel('counts')
-# # naming the y axis
-#  plt.ylabel('values')
-#  plt.legend(loc='best')
-#  plt.show()
-
- # from sklearn import tree
- # from dtreeviz.trees import dtreeviz # will be used for tree visualization
- # plt.rcParams.update({'figure.figsize': (12.0, 8.0)})
- # plt.rcParams.update({'font.size': 14})
-
- # plt.figure(figsize=(20,20))
- # _= tree.plot_tree(classifier1.estimators_[0], feature_names='Open,High,Low,Volume,Adj Close', filled=True)
-
-
- # plt.show()
-#  from sklearn.tree import export_graphviz
-#  from IPython import display
-#  str_tree = export_graphviz(classifier1, 
-#    out_file=None, 
-#    feature_names='Open,High,Low,Volume,Adj Volume', # column names
-#    filled=True,        
-#    special_characters=True, 
-#    rotate=True, 
-#    precision=0.6)
-#  fig, axes = plt.subplots(nrows = 1,ncols = 1,figsize = (4,4), dpi=800)
-# tree.plot_tree(rf.estimators_[0],
-#                feature_names = fn, 
-#                class_names=cn,
-#                filled = True);
-# fig.savefig('rf_individualtree.png')
 def show2(var12,var99):
  a=[]
  var=var12.get()
@@ -467,44 +360,16 @@ def arima(var13,var199):
     print(fc[0])
     v=fc[0]
     v1=v[0]
-    home_label4.config(text=v1)
-#     history = []
-    # predictions = list()
-#     from matplotlib import pyplot
-  
-#     from sklearn.metrics import mean_squared_error
-#     from math import sqrt
-#     for t in range(len(test)):
-#        model=ARIMA(train, order=(6,1,3))
-#        model_fit=model.fit(disp=0)
-#        fc,se,conf=model_fit.forecast(alpha=0.05)
-#        # print(output)
-#        predictions.append(fc)
-#        # obs = test[t]
-#        # history.append(obs)
-#        # print('predicted=%f, expected=%f' % (yhat, obs))
-# # evaluate forecasts
-#     rmse = sqrt(mean_squared_error(test, predictions))
-#     print('Test RMSE: %.3f' % rmse)
-# # plot forecasts against actual outcomes
-#     pyplot.plot(test)
-#     pyplot.plot(predictions, color='red')
-#     pyplot.show()
-      
-
-     
-                 
+    home_label4.config(text=v1)           
 f=Frame(a,bg="cyan")
 f.pack(side="top",fill="both",expand=True)
-
-home_label=Label(f,text="HOME SCREEN",font="Helvetica 35 bold",bg="white",bd=5)
+home_label=Label(f,text="HOME SCREEN",font="Helvetica 35 bold",bg="cyan",bd=5)
 home_label.place(x=250,y=250)
-
 m=Menu(a)
 m.add_command(label="Home",command=Home)
 checkmenu=Menu(m)
-m.add_command(label="Stock movement",command=Nlp)
-m.add_command(label="Stock price1",command=Rfr)
-m.add_command(label="Stock price2",command=Arima)
+m.add_command(label="NLP",command=Nlp)
+m.add_command(label="RFR",command=Rfr)
+m.add_command(label="ARIMA",command=Arima)
 a.config(menu=m)
 a.mainloop()
