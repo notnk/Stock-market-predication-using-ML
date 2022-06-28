@@ -10,22 +10,42 @@ import pickle,re
 from sklearn.feature_extraction.text import CountVectorizer
 import pandas as pd
 import numpy as np
+bgmain='#fff'
 a=Tk()
 a.title("STOCK MARKET PREDICTION")
-a.geometry("1000x950")
-def Home():
-    global f
-    f.pack_forget()
-    f=Frame(a,bg="skyblue")
-    f.pack(side="top",fill="both",expand=True)
-    home_label=Label(f,text="HOME SCREEN",font="Helvetica 25 bold",bg="skyblue",bd=5)
-    home_label.place(x=250,y=250)
+a.geometry("1200x600")
+# img = PhotoImage(file='img.png')
+# img = img.zoom(55) 
+# img = img.subsample(32) 
+# def Home():
+#    # a.config(menu=menubar)
+#    # img=PhotoImage('image.png')
+#    Label(a, image=img, bg="white").place(x=0, y=0)
+#    global f
+#    f.pack_forget()
+#    f=Frame(a)
+#    f.config(bg=bgmain)
+#    f.pack(side="top", fill="both", expand=True,padx=1000,pady=1000)
+#    label = a.Label(a, text='Some Plain Text', image=img, compound='center')
+#    label.place(x=250,y=250)
+#    # photo = ImageTk.PhotoImage(img.resize((a.winfo_width(), a.winfo_height()), Image.ANTIALIAS))
+#    # label = Label(f, image=photo, bg=bgmain)
+#    # label.image = photo
+#    # label.pack()
+#    # l=Label(f,text="Welcome",font =('Microsoft YaHei UI Light', 10,'bold'),fg="white",bg=bgmain)
+#    # l.place(x=500,y=300)
+#    # global f
+#    # f.pack_forget()
+#    # f=Frame(a,bg="skyblue")
+#    # f.pack(side="top",fill="both",expand=True)
+#    # home_label=Label(f,text="HOME SCREEN",font="Helvetica 25 bold",bg="skyblue",bd=5)
+#    # home_label.place(x=250,y=250)
 def Nlp():
     global f
     f.pack_forget()
     f=Frame(a,bg="skyblue")
     f.pack(side="top",fill="both",expand=True)
-    home_label=Label(f,text="NLP",font="Helvetica 25 bold",bg="skyblue",bd=5)
+    home_label=Label(f,text="NLP",font="Helvetica 30 bold",bg="skyblue",bd=5)
     home_label.place(x=150,y=100)
     home_label1=Label(f,text="Choose The Date",font="Helvetica 15 bold",bg="skyblue",bd=5)
     home_label1.place(x=250,y=200)
@@ -48,7 +68,7 @@ def Rfr():
     f.pack_forget()
     f=Frame(a,bg="skyblue")
     f.pack(side="top",fill="both",expand=True)
-    home_label=Label(f,text="RFR",font="Helvetica 25 bold",bg="skyblue",bd=5)
+    home_label=Label(f,text="RFR",font="Helvetica 30 bold",bg="skyblue",bd=5)
     home_label.place(x=150,y=100)
     home_label6=Label(f,text="Choose The Company",font="Helvetica 15 bold",bg="skyblue",bd=5)
     home_label6.place(x=250,y=200)
@@ -81,8 +101,7 @@ def Arima():
     f.pack_forget() 
     f=Frame(a,bg="skyblue")
     f.pack(side="top",fill="both",expand=True)
-
-    home_label=Label(f,text="ARIMA",font="Helvetica 25 bold",bg="skyblue",bd=5)
+    home_label=Label(f,text="ARIMA",font="Helvetica 30 bold",bg="skyblue",bd=5)
     home_label.place(x=150,y=100)
     home_label1=Label(f,text="Choose the company",font="Helvetica 15 bold",bg="skyblue",bd=5)
     home_label1.place(x=250,y=200)
@@ -97,7 +116,7 @@ def Arima():
     var199.set("select")
     option=OptionMenu(f,var199,*p)
     option.place(x=550,y=200)
-    predict_button1=Button(f,text="predict",bg="pink",width=40,command=lambda:arima(var13,var199))
+    predict_button1=Button(f,text="Predict",bg="pink",width=40,command=lambda:arima(var13,var199))
     predict_button1.place(x=350,y=370,height=35)
     global home_label4
     home_label4=Label(f,text="The prediction price is:",font="Helvetica 15 bold",bg="skyblue",bd=5)
@@ -360,13 +379,29 @@ def arima(var13,var199):
     print(fc[0])
     v=fc[0]
     v1=v[0]
-    home_label4.config(text=v1)           
+    home_label4.config(text=v1)    
+global f       
 f=Frame(a,bg="cyan")
 f.pack(side="top",fill="both",expand=True)
-home_label=Label(f,text="HOME SCREEN",font="Helvetica 35 bold",bg="cyan",bd=5)
-home_label.place(x=250,y=250)
+# home_label=Label(f,text="Stock Market Predication",font="Helvetica 35 bold",bg="cyan",bd=5)
+# home_label.place(x=250,y=250)
+img = PhotoImage(file='img1.png')
+img = img.zoom(24)
+img = img.subsample(32) 
+# tkimage = ImageTk.PhotoImage(img)
+# a.Label(a, image=tkimage, text="Update User", compound=a.CENTER).pack()
+Label(a, image=img, bg="white").place(x=0, y=0)
+l2=Label(f,text="Stock Market Predication",font=('Microsoft YaHei UI Light', 13,'bold'),bg=bgmain)
+l2.place(x=80,y=10)
+# footer = Frame(a, bg='lightgrey', height=30)
+# footer.pack(fill='both', side='bottom')
+# lab1=Label(footer,text="Designed & Developed by Group-8 \n © 2018-2022 - The RSET Information Technology Department",font = ('Microsoft YaHei UI Light', 10,'bold'),fg="black",bg="lightgrey")
+f.pack_forget()
+# f=Frame(a)
+# f.config(bg=bgmain)
+# f.pack(side="top", fill="both", expand=True,padx=1000,pady=1000)
 m=Menu(a)
-m.add_command(label="Home",command=Home)
+#m.add_command(label="Home",command=Home)
 checkmenu=Menu(m)
 m.add_command(label="NLP",command=Nlp)
 m.add_command(label="RFR",command=Rfr)
